@@ -1,63 +1,43 @@
 import React from 'react';
 import './App.css';
-import Gallery from './components/Gallery';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import GalleryPage from './pages/GalleryPage';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import ImagePage from './pages/ImagePage';
 
 function App() {
   return (
-    <div className="app-container">
-      {/* Navigation */}
-      <nav className="navigation">
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+    <Router>
+      <div className="app-container">
+        {/* Navigation */}
+        <nav className="navigation">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/gallery">Galerie</a></li>
+            <li><a href="/quiz">Quiz</a></li>
+            <li><a href="/about">Über Uns</a></li>
+            <li><a href="/contact">Kontakt</a></li>
+          </ul>
+        </nav>
 
-      {/* Hero Section */}
-      <section id="home" className="hero">
-        {/* Background image in HTML, dimmed by CSS */}
-        <img
-          className="hero-background"
-          src="./images/Dübi_Fest.JPG"
-          alt="Hero background"
-        />
+        {/* Routing */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/quiz" element={<Contact />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/image/:imageId" element={<ImagePage />} />
+        </Routes>
 
-        <div className="hero-content">
-          {/* City logo (unaffected by filter) */}
-          <img
-            id="hero-img"
-            src="./images/Stadt_Dübendorf.png"
-            alt="City Logo"
-            className="logo"
-          />
-          <h1>Entdecke Dübendorf</h1>
-        </div>
-      </section>
-
-      {/* Main Content */}
-      <main className="main-content">
-        {/* Sidebar */}
-        <aside className="sidebar">
-          <h2>Sidebar Placeholder</h2>
-          <p>Links or additional information can go here.</p>
-        </aside>
-
-        {/* Main Section */}
-        <section className="content">
-          <h2>Main Content Placeholder</h2>
-          <p>This is where your main content will appear.</p>
-          {/* Integrate your Gallery here */}
-          <Gallery />
-        </section>
-      </main>
-
-      {/* Footer */}
-      <footer className="footer">
-        <p>Footer Placeholder</p>
-      </footer>
-    </div>
+        {/* Footer */}
+        <footer className="footer">
+          <p>Footer Placeholder</p>
+        </footer>
+      </div>
+    </Router>
   );
 }
 
