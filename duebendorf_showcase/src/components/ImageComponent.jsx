@@ -2,7 +2,7 @@ import React from 'react';
 
 const ImageComponent = ({ src, alt, description, onClick }) => {
   return (
-    <div className="gallery-item" onClick={onClick}> {/* onClick übergeben */}
+    <div className="gallery-item" onClick={onClick}>
       <img src={src} alt={alt} />
     </div>
   );

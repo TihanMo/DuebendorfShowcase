@@ -1,6 +1,14 @@
 import React from 'react';
 import './Home.css';
-import Gallery from '../components/Gallery';
+import Carousel from '../components/Carousel';
+
+const images = [
+  { id: 1, src: "/images/Three_Point_2.JPG", alt: "Three Point", description: "Description for Three Point" },
+  { id: 2, src: "/images/Glatt.JPG", alt: "Glatt", description: "Description for Glatt" },
+  { id: 3, src: "/images/Schild_3.JPG", alt: "Dübendorf Schild", description: "Description for Schild" },
+  { id: 4, src: "/images/Autobahn.JPG", alt: "Autobahn", description: "Description for Autobahn" },
+  { id: 5, src: "/images/Bhf_alter_Wagon.JPG", alt: "Alter Wagon am Bahnhof", description: "Description for Wagon" },
+];
 
 const Home = () => {
   return (
@@ -35,7 +43,7 @@ const Home = () => {
         <section className="content">
           <h2>Hauptinhalt</h2>
           <p>Hier erscheint der Hauptinhalt Ihrer Webseite.</p>
-          <Gallery />
+          <Carousel images={images} />
           <a href="/gallery">Entdecke noch mehr </a>
         </section>
       </main>
